@@ -2,7 +2,7 @@
 pragma solidity 0.8.28;
 
 import { ERC721URIStorage, ERC721 } from "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import { Ownable2Step, Ownable } from "@openzeppelin/contracts/access/Ownable2Step.sol";
+import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { IWeatherNFT } from "./Interface/IWeatherNFT.sol";
 import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
 
@@ -10,7 +10,7 @@ import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
  * @title WeatherNFT
  * @dev Implementation of a dynamic NFT that represents weather conditions
  */
-contract WeatherNFT is ERC721URIStorage, Ownable2Step, IWeatherNFT {
+contract WeatherNFT is ERC721URIStorage, Ownable, IWeatherNFT {
     using Strings for uint256;
 
     // State variables

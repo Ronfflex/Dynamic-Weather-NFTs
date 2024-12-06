@@ -114,7 +114,6 @@ contract WeatherNFTTest is Test {
         weatherNFT.transferOwnership(user1);
 
         vm.prank(user1);
-        weatherNFT.acceptOwnership();
 
         assertEq(weatherNFT.owner(), user1);
     }
