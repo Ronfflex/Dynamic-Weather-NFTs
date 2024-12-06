@@ -23,14 +23,13 @@ contract WeatherNFTFactoryTest is Test {
         user1 = makeAddr("user1");
         user2 = makeAddr("user2");
 
-        // Deploy factory
         factory = new WeatherNFTFactory();
 
         vm.deal(user1, 100 ether);
         vm.deal(user2, 100 ether);
     }
 
-    function test_InitialState() public view {
+    function test_InitialState() public {
         assertEq(factory.owner(), owner);
         assertEq(factory.getDeployedNFTs().length, 0);
     }
@@ -88,9 +87,9 @@ contract WeatherNFTFactoryTest is Test {
     function test_FactoryOwnership() public {
         // Transfer factory ownership
         factory.transferOwnership(user1);
-        
+
         assertEq(factory.owner(), user1);
-        
+
         // Ensure the new owner can still deploy NFTs
         vm.prank(user1);
         address nft = factory.deployWeatherNFT("Weather NFT", "WNFT");
