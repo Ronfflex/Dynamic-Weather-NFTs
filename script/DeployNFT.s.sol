@@ -9,13 +9,13 @@ contract DeployNFT is Script {
     function run() external {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address factoryAddress = vm.envAddress("FACTORY_ADDRESS");
-        
+
         vm.startBroadcast(deployerPrivateKey);
-        
+
         WeatherNFTFactory factory = WeatherNFTFactory(factoryAddress);
         address nftAddress = factory.deployWeatherNFT("Weather Collection", "WEATHER");
         console2.log("WeatherNFT deployed at:", nftAddress);
-        
+
         vm.stopBroadcast();
     }
 }
